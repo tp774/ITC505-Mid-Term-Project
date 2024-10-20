@@ -1,16 +1,16 @@
 /* General Styling */
 body {
-    background-color: #f0f4f8;
+    background-color: #f3f6f9;
     font-family: 'Arial', sans-serif;
     color: #333;
     margin: 0;
-    padding: 20px;
+    padding: 0;
     text-align: center;
 }
 
 /* Header Styling */
 header {
-    background-color: #4c8bf5;
+    background-color: #4caf50;
     color: white;
     padding: 15px;
     border-radius: 8px;
@@ -18,43 +18,29 @@ header {
 
 h1 {
     margin: 0;
+    font-size: 36px;
 }
 
-/* Story Container */
-#story-container {
-    margin-top: 20px;
+p {
+    margin: 10px 0;
+}
+
+/* Game Board Styling */
+#game-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
 }
 
-#story-text {
-    margin-bottom: 15px;
-    font-size: 18px;
+canvas {
+    border: 2px solid #4caf50;
+    background-color: #fff;
+    display: block;
 }
 
-#choices button {
-    margin: 5px;
-    padding: 10px 20px;
-    border: none;
-    background-color: #4c8bf5;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#choices button:hover {
-    background-color: #3672c2;
-}
-
-/* Image Container */
-#image-container {
-    margin-top: 15px;
-}
-
-#story-image {
-    max-width: 300px;
-    border-radius: 8px;
+/* Score Container */
+#score-container {
+    margin-top: 10px;
 }
 
 /* Footer Styling */
