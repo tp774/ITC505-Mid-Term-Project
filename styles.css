@@ -75,6 +75,10 @@ button:hover {
 #countdown {
     font-size: 48px;
     margin-top: 20px;
+}
+
+/* Hidden Class */
+.hidden {
     display: none;
 }
 
