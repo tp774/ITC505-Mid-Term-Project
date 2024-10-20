@@ -38,27 +38,9 @@ canvas {
     display: block;
 }
 
-/* Score and Control Container */
+/* Score Container */
 #score-container {
     margin-top: 10px;
-}
-
-#controls {
-    margin-top: 15px;
-}
-
-button {
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 18px;
-    border-radius: 5px;
-}
-
-button:hover {
-    background-color: #45a049;
 }
 
 /* Footer Styling */
