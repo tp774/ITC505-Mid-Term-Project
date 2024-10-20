@@ -38,9 +38,44 @@ canvas {
     display: block;
 }
 
-/* Score Container */
+/* Score and Control Container */
 #score-container {
     margin-top: 10px;
+}
+
+#controls {
+    margin-top: 15px;
+}
+
+button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Reset Button */
+#reset-button {
+    background-color: red;
+}
+
+#reset-button:hover {
+    background-color: darkred;
+}
+
+/* Countdown Styling */
+#countdown {
+    font-size: 48px;
+    margin-top: 20px;
+    display: none;
 }
 
 /* Footer Styling */
@@ -49,4 +84,3 @@ footer {
     font-size: 14px;
     color: #666;
 }
-
