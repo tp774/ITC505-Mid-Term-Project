@@ -3,17 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Snake Game</title>
+    <title>Choose Your Own Adventure</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Snake Game</h1>
-        <p>Use arrow keys to move the snake. Eat food to grow, avoid hitting walls or yourself!</p>
+        <h1>Choose Your Own Adventure</h1>
+        <p>Make your choices carefully and reach one of the eight endings!</p>
     </header>
 
-    <div id="game-container">
-        <canvas id="gameCanvas"></canvas>
+    <div id="story-container">
+        <div id="story-text"></div>
+        <div id="choices"></div>
+        <div id="image-container">
+            <img id="story-image" src="" alt="Story Image" />
+        </div>
     </div>
 
     <footer>
@@ -23,9 +27,9 @@
     </footer>
 
     <script src="script.js"></script>
-    <script type="text/javascript">
-        var x = document.lastModified;
-        document.getElementById('lastModified').textContent = x;
+    <script>
+        var lastModified = document.lastModified;
+        document.getElementById('lastModified').textContent = lastModified;
     </script>
 </body>
 </html>
