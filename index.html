@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Choose Your Own Adventure</title>
+    <title>Snake Game</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Choose Your Own Adventure</h1>
-        <p>Make your choices carefully and reach one of the eight endings!</p>
+        <h1>Snake Game</h1>
+        <p>Use arrow keys to control the snake. Eat the food to grow!</p>
     </header>
 
-    <div id="story-container">
-        <div id="story-text"></div>
-        <div id="choices"></div>
-        <div id="image-container">
-            <img id="story-image" src="" alt="Story Image" />
-        </div>
+    <div id="game-container">
+        <canvas id="game-board"></canvas>
+    </div>
+
+    <div id="score-container">
+        <p>Score: <span id="score">0</span></p>
     </div>
 
     <footer>
