@@ -3,19 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Choose Your Adventure - Forest Escape</title>
+    <title>Snake Game</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Forest Adventure</h1>
-        <p>Will you make it out alive?</p>
+        <h1>Snake Game</h1>
+        <p>Use arrow keys to move the snake. Eat food to grow, avoid hitting walls or yourself!</p>
     </header>
 
-    <div id="story-container">
-        <p id="story-text">You stand at the entrance of a dark forest. Do you take the left or right path?</p>
-        <div id="choices"></div>
-        <img id="story-image" src="images/start.jpg" alt="Forest Entrance">
+    <div id="game-container">
+        <canvas id="gameCanvas"></canvas>
     </div>
 
     <footer>
