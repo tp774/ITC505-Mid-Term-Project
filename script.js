@@ -1,10 +1,18 @@
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
-let box = 20; // Size of each segment of the snake
+// Constants for the game
+const box = 20; // Size of each segment of the snake
+const canvasSize = 400; // Size of the canvas
+canvas.width = canvasSize;
+canvas.height = canvasSize;
+
 let snake = [{ x: 9 * box, y: 9 * box }]; // Snake starts with one segment
-let direction; // Direction of the snake
-let food = { x: Math.floor(Math.random() * 18 + 1) * box, y: Math.floor(Math.random() * 18 + 1) * box };
+let direction = "RIGHT"; // Initial direction
+let food = {
+    x: Math.floor(Math.random() * (canvasSize / box - 1)) * box,
+    y: Math.floor(Math.random() * (canvasSize / box - 1)) * box,
+};
 let score = 0;
 let game;
 
@@ -24,6 +32,7 @@ function draw() {
         ctx.beginPath();
         ctx.arc(snake[i].x + box / 2, snake[i].y + box / 2, box / 2, 0, Math.PI * 2); // Draw circles
         ctx.fill();
+        ctx.closePath();
     }
 
     // Old head position
@@ -40,8 +49,8 @@ function draw() {
     if (snakeX === food.x && snakeY === food.y) {
         score++;
         food = {
-            x: Math.floor(Math.random() * 18 + 1) * box,
-            y: Math.floor(Math.random() * 18 + 1) * box
+            x: Math.floor(Math.random() * (canvasSize / box - 1)) * box,
+            y: Math.floor(Math.random() * (canvasSize / box - 1)) * box,
         };
     } else {
         snake.pop(); // Remove the last segment if food is not eaten
@@ -49,7 +58,7 @@ function draw() {
 
     // Check for collisions
     let newHead = { x: snakeX, y: snakeY };
-    if (snakeX < box || snakeX > 18 * box || snakeY < box || snakeY > 18 * box || collision(newHead, snake)) {
+    if (snakeX < 0 || snakeX >= canvasSize || snakeY < 0 || snakeY >= canvasSize || collision(newHead, snake)) {
         clearInterval(game);
         alert("Game Over");
     }
@@ -78,10 +87,8 @@ function directionControl(event) {
 
 // Start the game
 function startGame() {
-    direction = "RIGHT"; // Initial direction
     game = setInterval(draw, speed); // Use the defined speed
 }
 
 // Call startGame function to begin
 startGame();
-
