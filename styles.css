@@ -1,0 +1,90 @@
+/* General Styling */
+body {
+    background-color: #f3f6f9;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* Header Styling */
+header {
+    background-color: #4caf50;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 36px;
+}
+
+p {
+    margin: 10px 0;
+}
+
+/* Game Board Styling */
+#game-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+canvas {
+    border: 2px solid #4caf50;
+    background-color: #fff;
+    display: block;
+}
+
+/* Score and Control Container */
+#score-container {
+    margin-top: 10px;
+}
+
+#controls {
+    margin-top: 15px;
+}
+
+button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Reset Button */
+#reset-button {
+    background-color: red;
+}
+
+#reset-button:hover {
+    background-color: darkred;
+}
+
+/* Countdown Styling */
+#countdown {
+    font-size: 48px;
+    margin-top: 20px;
+}
+
+/* Hidden Class */
+.hidden {
+    display: none;
+}
+
+/* Footer Styling */
+footer {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #666;
+}
