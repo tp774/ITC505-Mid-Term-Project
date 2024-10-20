@@ -1,7 +1,7 @@
 /* General Styling */
 body {
-    background-color: #2b2d42;
-    color: #edf2f4;
+    background-color: #0d1b2a;
+    color: #e0e1dd;
     font-family: 'Arial', sans-serif;
     text-align: center;
     margin: 0;
@@ -10,44 +10,23 @@ body {
 
 /* Header Styling */
 header {
-    background-color: #8d99ae;
+    background-color: #1b263b;
     padding: 15px;
     margin-bottom: 20px;
-    border-bottom: 2px solid #ef233c;
+    border-bottom: 2px solid #e0e1dd;
 }
 
-h1 {
-    font-family: 'Georgia', serif;
-    color: #edf2f4;
+/* Game Container */
+#game-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
 }
 
-/* Story Container */
-#story-container {
-    background-color: #1c1c1c;
-    padding: 20px;
-    max-width: 600px;
-    margin: 0 auto;
-    border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
-}
-
-#choices button {
-    background-color: #ef233c;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    margin: 5px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-#choices button:hover {
-    background-color: #d90429;
-}
-
-#story-image {
-    max-width: 100%;
-    margin-top: 20px;
-    border-radius: 8px;
+/* Canvas Styling */
+#gameCanvas {
+    background-color: #415a77;
+    border: 2px solid #e0e1dd;
+    display: block;
 }
