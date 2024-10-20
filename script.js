@@ -20,14 +20,14 @@ document.addEventListener('keydown', changeDirection);
 // Function to start the countdown
 function startCountdown() {
     let countdown = 3;
-    countdownDisplay.style.display = 'block';
+    countdownDisplay.classList.remove('hidden');
     countdownDisplay.textContent = countdown;
 
     const interval = setInterval(() => {
         countdown--;
         if (countdown === 0) {
             clearInterval(interval);
-            countdownDisplay.style.display = 'none';
+            countdownDisplay.classList.add('hidden');
             startGame();
         } else {
             countdownDisplay.textContent = countdown;
@@ -57,6 +57,7 @@ function resetGame() {
     clearInterval(game);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     updateScore(0);
+    countdownDisplay.classList.add('hidden');
     snake = [{ x: 200, y: 200 }];
     dx = 20;
     dy = 0;
