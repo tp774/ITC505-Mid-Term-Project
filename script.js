@@ -3,8 +3,8 @@ const canvas = document.getElementById('game-board');
 const ctx = canvas.getContext('2d');
 
 // Set canvas size
-canvas.width = 400;
-canvas.height = 400;
+canvas.width = 500;
+canvas.height = 500;
 
 // Game variables
 let snake, food, dx, dy, score, game;
@@ -49,7 +49,7 @@ function startGame() {
     if (game) clearInterval(game);
 
     // Start the game loop
-    game = setInterval(main, 100);
+    game = setInterval(main, 200);
 }
 
 // Reset the game
