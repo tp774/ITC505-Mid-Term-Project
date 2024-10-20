@@ -49,7 +49,7 @@ function startGame() {
     if (game) clearInterval(game);
 
     // Start the game loop
-    game = setInterval(main, 200);
+    game = setInterval(main, 250);
 }
 
 // Reset the game
