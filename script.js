@@ -1,92 +1,90 @@
-const canvas = document.getElementById('gameCanvas');
-const ctx = canvas.getContext('2d');
+// Game data: stages of the story
+const story = {
+    start: {
+        text: "You find yourself at a crossroads in a forest. Will you go left or right?",
+        choices: [
+            { text: "Go left", next: "leftPath" },
+            { text: "Go right", next: "rightPath" }
+        ],
+        image: "images/crossroad.jpg"
+    },
+    leftPath: {
+        text: "You encounter a friendly deer. Do you follow it or continue on your way?",
+        choices: [
+            { text: "Follow the deer", next: "followDeer" },
+            { text: "Continue on your way", next: "continueAlone" }
+        ],
+        image: "images/deer.jpg"
+    },
+    rightPath: {
+        text: "You stumble upon a strange glowing stone. Do you touch it or leave it?",
+        choices: [
+            { text: "Touch the stone", next: "touchStone" },
+            { text: "Leave it", next: "leaveStone" }
+        ],
+        image: "images/stone.jpg"
+    },
+    followDeer: {
+        text: "The deer leads you to a hidden waterfall. You've reached a peaceful ending!",
+        choices: [],
+        image: "images/waterfall.jpg"
+    },
+    continueAlone: {
+        text: "You continue wandering and find yourself lost. This is a sad ending.",
+        choices: [],
+        image: "images/lost.jpg"
+    },
+    touchStone: {
+        text: "The stone grants you magical powers. You've achieved a magical ending!",
+        choices: [],
+        image: "images/magic.jpg"
+    },
+    leaveStone: {
+        text: "You walk away from the stone and find your way back home. It's a safe ending.",
+        choices: [],
+        image: "images/home.jpg"
+    }
+};
 
-// Set canvas dimensions
-canvas.width = 400;
-canvas.height = 400;
+// Initialize the game state
+let currentStage = "start";
 
-// Snake settings
-let snake = [{ x: 10, y: 10 }];
-let direction = { x: 1, y: 0 };
-let food = { x: getRandomPosition(), y: getRandomPosition() };
-let score = 0;
-let gameInterval;
-
-// Start the game
+// Start or restart the game
 function startGame() {
-    clearInterval(gameInterval);
-    snake = [{ x: 10, y: 10 }];
-    direction = { x: 1, y: 0 };
-    food = { x: getRandomPosition(), y: getRandomPosition() };
-    score = 0;
-    gameInterval = setInterval(updateGame, 100);
+    currentStage = "start";
+    updatePage();
 }
 
-// Generate random positions for food
-function getRandomPosition() {
-    return Math.floor(Math.random() * 20) * 20;
-}
+// Update the page based on the current stage
+function updatePage() {
+    const stage = story[currentStage];
+    document.getElementById("story-text").textContent = stage.text;
 
-// Update the game on each tick
-function updateGame() {
-    const head = { x: snake[0].x + direction.x * 20, y: snake[0].y + direction.y * 20 };
-    snake.unshift(head);
+    const image = document.getElementById("story-image");
+    image.src = stage.image;
+    image.alt = stage.text;
 
-    // Check if snake ate the food
-    if (head.x === food.x && head.y === food.y) {
-        score++;
-        food = { x: getRandomPosition(), y: getRandomPosition() };
-    } else {
-        snake.pop(); // Remove tail if no food eaten
-    }
+    const choicesDiv = document.getElementById("choices");
+    choicesDiv.innerHTML = ""; // Clear previous choices
 
-    // Check for game over conditions
-    if (head.x < 0 || head.y < 0 || head.x >= canvas.width || head.y >= canvas.height || collision(head)) {
-        clearInterval(gameInterval);
-        alert(`Game Over! Your score: ${score}`);
-    }
-
-    // Render game elements
-    drawGame();
-}
-
-// Check if the snake collides with itself
-function collision(head) {
-    return snake.slice(1).some(segment => segment.x === head.x && segment.y === head.y);
-}
-
-// Draw the game elements (snake and food)
-function drawGame() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    // Draw the snake
-    snake.forEach(segment => {
-        ctx.fillStyle = 'lime';
-        ctx.fillRect(segment.x, segment.y, 20, 20);
+    stage.choices.forEach(choice => {
+        const button = document.createElement("button");
+        button.textContent = choice.text;
+        button.addEventListener("click", () => {
+            currentStage = choice.next;
+            updatePage();
+        });
+        choicesDiv.appendChild(button);
     });
 
-    // Draw the food
-    ctx.fillStyle = 'red';
-    ctx.fillRect(food.x, food.y, 20, 20);
-}
-
-// Control snake direction with arrow keys
-document.addEventListener('keydown', event => {
-    switch (event.key) {
-        case 'ArrowUp':
-            if (direction.y === 0) direction = { x: 0, y: -1 };
-            break;
-        case 'ArrowDown':
-            if (direction.y === 0) direction = { x: 0, y: 1 };
-            break;
-        case 'ArrowLeft':
-            if (direction.x === 0) direction = { x: -1, y: 0 };
-            break;
-        case 'ArrowRight':
-            if (direction.x === 0) direction = { x: 1, y: 0 };
-            break;
+    // If no more choices, end the game
+    if (stage.choices.length === 0) {
+        const restartButton = document.createElement("button");
+        restartButton.textContent = "Restart";
+        restartButton.addEventListener("click", startGame);
+        choicesDiv.appendChild(restartButton);
     }
-});
+}
 
 // Start the game when the page loads
 startGame();
